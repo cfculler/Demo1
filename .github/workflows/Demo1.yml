@@ -19,6 +19,7 @@ jobs:
       fail-on-cache-miss: true
       
   - name: Get user logins from org
+    run: node idex.js
     
   
     
