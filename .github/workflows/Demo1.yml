@@ -1,6 +1,7 @@
 name: Demo 1 Github Actions/APIs/workflows
 
 on: 
+  push:
   workflow_dispatch:
   workflow_call:
 
