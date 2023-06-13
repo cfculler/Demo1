@@ -6,7 +6,7 @@ const octokit = new Octokit({
     //auth: process.env.TOKEN,
 
     // Use when running on the repo
-    auth: secrets.TOKEN,
+    auth: process.argv[2],
 });
 
 // Get number of users
