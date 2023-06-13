@@ -2,7 +2,11 @@ import 'dotenv/config'
 import { Octokit, App } from "octokit"
 
 const octokit = new Octokit({ 
-    auth: process.env.TOKEN,
+    // Use when running locally
+    //auth: process.env.TOKEN,
+
+    // Use when running on the repo
+    auth: secrets.TOKEN,
 });
 
 // Get number of users
