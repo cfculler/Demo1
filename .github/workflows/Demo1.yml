@@ -19,7 +19,11 @@ jobs:
       fail-on-cache-miss: true
       
   - name: Get user logins from org
-    run: node idex.js
-    
+    run: node index.js
+  
+  - uses: actions/upload-artifact@v3
+    with:
+      name: logins
+      path: output.json
   
     
