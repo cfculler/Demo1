@@ -1,0 +1,14 @@
+{
+  "name": "liatrio-bootcamp-chapter2-demo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.1.4",
+    "octokit": "^2.0.19"
+  },
+  "type": "module"
+}
