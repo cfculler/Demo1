@@ -9,7 +9,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
-
     - name: Restoring cached dependencies 
       uses: actions/cache/restore@v3
       id: cache
@@ -23,11 +22,8 @@ jobs:
         node index.js
         value=`cat output.json`
         echo $value
-
-
     - uses: actions/upload-artifact@v3
       with:
         name: logins
         path: output.json
-  
     
