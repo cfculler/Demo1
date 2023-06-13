@@ -13,6 +13,7 @@ jobs:
       uses: actions/cache/restore@v3
       id: cache
       with:
+        path: ~/.npm
         key: ${{ secrets.CACHE_KEY }}
         # exits workflow on a cache miss to avoid any errors
         fail-on-cache-miss: true
