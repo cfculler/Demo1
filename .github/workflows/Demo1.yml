@@ -5,7 +5,6 @@ on:
   workflow_call:
 
 jobs: 
-<<<<<<< HEAD
   build: 
     runs-on: ubuntu-latest
     steps:
@@ -28,31 +27,4 @@ jobs:
         name: logins
         path: output.json
     
-=======
-  build: ubuntu-latest
-  steps:
-  - uses: actions/checkout@v3
-  
-  - name: Restoring cached dependencies 
-    uses: actions/cache/restore@v3
-    id: cache
-    with:
-      path: path/to/dependencies
-      key: ${{ runner.os }}-${{ hashFiles('**/lockfiles') }}
-      # exits workflow on a cache miss to avoid any errors
-      fail-on-cache-miss: true
-      
-  - name: Get user logins from org
-    run: | 
-      node index.js
-      value=`cat output.json`
-      echo $value
-
-  
-  - uses: actions/upload-artifact@v3
-    with:
-      name: logins
-      path: output.json
-  
->>>>>>> 16f96932e43eb2948faa263b052e8dd39c65ef57
     
