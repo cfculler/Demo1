@@ -22,8 +22,10 @@ jobs:
       run: npm install octokit
 
     - name: Get user logins from org
+      env:
+        SECRET_TOKEN: ${{ secrets.TOKEN }}
       run: | 
-        node index.js ${{ secrets.TOKEN }}
+        node index.js "$SECRET_TOKEN"
         value=`cat output.json`
         echo $value
     - uses: actions/upload-artifact@v3
