@@ -25,7 +25,7 @@ const octokit = new Octokit({
 
 //prolly grab only the necessary shit from here
 async function createRepo(){
-    let userlogin = process.argv;
+    let userlogin = process.argv[2];
     console.log(userlogin);
     try{
        let res = await octokit.graphql({
