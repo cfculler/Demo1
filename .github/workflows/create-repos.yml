@@ -1,0 +1,31 @@
+name: Make Repos for Each User
+
+on: 
+  workflow_call:
+
+jobs:
+  get-matrix: #will create the matrix to use
+    runs-on: ubuntu-latest
+    outputs:
+      generatedmatrix: ${{ steps.set-matrix.outputs.matrix }} #holds JSON object of users
+    steps:
+      - uses: actions/checkout@v3 #checking out 
+      - uses: actions/download-artifact@v3
+        with: logins
+      
+      - id: set-matrix #populates generatedmatrix -- EOF stuff because it's multiline
+        run: |
+          JSON=`cat output.json`
+          EOF=$(dd if=/dev/urandom bs=15 count=1 status=none | base64)
+          echo "matrix<<$EOF" >> $GITHUB_OUTPUT
+          echo "$JSON" >> $GITHUB_OUTPUT
+          echo "$EOF" >> $GITHUB_OUTPUT
+        
+  use-matrix: #will call the necessary node application
+    needs: get-matrix
+    strategy:
+      matrix:
+        user: ${{ fromJSON(needs.get-matrix.outputs.generatedmatrix) }} #each matrix call is a JSON object in the form: { login: "username" }
+    runs-on: ubuntu-latest
+    steps:
+      - run: node makeRepo.js "${{ matrix.user.login }}" #runs makeRepo.js with username
