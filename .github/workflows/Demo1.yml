@@ -19,7 +19,7 @@ jobs:
         fail-on-cache-miss: true
         
     - name: install octokit
-      run: npn install octokit
+      run: npm install octokit
 
     - name: Get user logins from org
       run: | 
