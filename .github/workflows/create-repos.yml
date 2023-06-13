@@ -15,7 +15,7 @@ jobs:
       
       - id: set-matrix #populates generatedmatrix -- EOF stuff because it's multiline
         run: |
-          JSON=`cat users.JSON`
+          JSON=`cat output.json`
           EOF=$(dd if=/dev/urandom bs=15 count=1 status=none | base64)
           echo "matrix<<$EOF" >> $GITHUB_OUTPUT
           echo "$JSON" >> $GITHUB_OUTPUT
