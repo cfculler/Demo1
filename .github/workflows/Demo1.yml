@@ -1,8 +1,10 @@
 name: Demo 1 Github Actions/APIs/workflows
 
 on: 
+  push:
+    branches: 
+    - main
   workflow_dispatch:
-  workflow_call:
 
 jobs: 
   Getting_User_logins:
