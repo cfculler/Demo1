@@ -8,8 +8,8 @@ jobs:
       
       - name: download necessary
         run: |
-          npm -i octokit 
-          npm -i dotenv
+          npm install octokit 
+          npm install dotenv
       - name: Cache node modules
         id: cache-npm
         uses: actions/cache@v3
