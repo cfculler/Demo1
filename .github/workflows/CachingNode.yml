@@ -6,9 +6,8 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       
-      # - name: download necessary
-      #   run: |
-      #     npm install octokit 
+      - name: download necessary
+        run: npm install octokit 
       #     npm install dotenv
       - name: Cache node modules
         id: cache-npm
