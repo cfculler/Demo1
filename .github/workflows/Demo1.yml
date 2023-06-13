@@ -8,29 +8,9 @@ jobs:
   Getting_User_logins:
     runs-on: ubuntu-latest
     steps:
-    # - uses: actions/checkout@v3
-    # - name: Restoring cached dependencies 
-    #   uses: actions/cache/restore@v3
-    #   id: cache
-    #   with:
-    #     path: ~/.npm
-    #     key: ${{ secrets.CACHE_KEY }}
-    #     # exits workflow on a cache miss to avoid any errors
-    #     fail-on-cache-miss: true
-
-
-
-        
-    # - name: install octokit
-    #   run: npm install octokit
 
 
     - uses: actions/checkout@v3
-      
-      # - name: download necessary
-      #   run: |
-      #     npm install octokit 
-      #     npm install dotenv
       - name: Cache node modules
         id: cache-npm
         uses: actions/cache@v3
@@ -47,11 +27,8 @@ jobs:
 
       - if: ${{ steps.cache-npm.outputs.cache-hit != 'true' }}
         name: List the state of node modules
-        continue-on-error: true
-        run: npm list
 
-
-
+    
 
 
 
