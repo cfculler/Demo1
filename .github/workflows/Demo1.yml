@@ -29,7 +29,7 @@ jobs:
 
 
     - name: Get user logins from org
-      if: ${{ steps.cache-npm.outputs.cache-hit != 'true' }}
+      if: ${{ steps.cache-npm.outputs.cache-hit == 'true' }}
     # - name: Get user logins from org
       env:
         SECRET_TOKEN: ${{ secrets.TOKEN }}
