@@ -23,7 +23,7 @@ jobs:
 
     - name: Get user logins from org
       run: | 
-        node index.js
+        'node index.js ${{ secrets.TOKEN }}'
         value=`cat output.json`
         echo $value
     - uses: actions/upload-artifact@v3
