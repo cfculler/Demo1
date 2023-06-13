@@ -17,6 +17,9 @@ jobs:
         key: ${{ secrets.CACHE_KEY }}
         # exits workflow on a cache miss to avoid any errors
         fail-on-cache-miss: true
+        
+    - name: install octokit
+      run: npn install octokit
 
     - name: Get user logins from org
       run: | 
