@@ -28,4 +28,7 @@ jobs:
         user: ${{ fromJSON(needs.get-matrix.outputs.generatedmatrix) }} #each matrix call is a JSON object in the form: { login: "username" }
     runs-on: ubuntu-latest
     steps:
-      - run: node makeRepo.js "${{ matrix.user.login }}" #runs makeRepo.js with username
+     - name: call makerepo.js
+        env:
+          SECRET_TOKEN: ${{ secrets.TOKEN }}
+        run: node makeRepo.js "${{ matrix.user.login }}" "$SECRET_TOKEN" #runs makeRepo.js with username
